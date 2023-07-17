@@ -5,7 +5,8 @@ const initialState = {
     alertText:"",
     token:null,
     alertType:null,
-    user:null
+    user:null,
+    employees:null
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -26,7 +27,7 @@ const initialState = {
           error: action.payload,
         };
       case 'SETUP_SUCCESS':
-        console.log(action.payload.user)
+        console.log(action.payload)
         return{
           ...state,
           showAlert:true,
@@ -56,6 +57,11 @@ const initialState = {
           user: null,
           token: null,
         };
+      case 'FETCH_EMPLOYEES':
+        return{
+          ...state,
+          employees:action.payload.employees
+        }
 
         
       default:

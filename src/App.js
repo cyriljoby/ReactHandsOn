@@ -11,6 +11,7 @@ import SharedLayout from './components/SharedLayout';
 import Contacts from './pages/Contacts.js'
 import RegistrationForm from './pages/Register';
 import ProtectedRoute from './pages/ProtectedRoute';
+import EmployeeDetails from './pages/EmployeeDetails';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/register" element={<RegistrationForm/>}/>
+        
         <Route
           path="/"
           element={
@@ -27,6 +29,7 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="/details/:id" element={<EmployeeDetails/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/employees" element={<Employees/>}/>
           <Route path="/clients" element={<Clients/>}/>
@@ -35,6 +38,7 @@ function App() {
           <Route path="/calls" element={<Calls/>}/>
           <Route path="/contacts" element={<Contacts/>}/>
           <Route path="/settings" element={<Settings/>}/>
+          
         </Route>
       </Routes>
     </BrowserRouter>

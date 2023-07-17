@@ -68,3 +68,15 @@ export const logout = ()=>{
     dispatch({type:'LOGOUT_USER'})
   }
 }
+
+export const fetchEmployees=()=>{
+  
+  return async (dispatch)=>{
+    console.log('hi')
+    const {data}  = await axios.get('https://reqres.in/api/users')
+    let employees = (data.data)
+    console.log(employees)
+    dispatch({type:'FETCH_EMPLOYEES',payload:{employees}})
+
+  }
+}
