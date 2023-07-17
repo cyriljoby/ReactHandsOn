@@ -1,0 +1,32 @@
+{
+    "dashboard": {
+      "title": "Dashboard",
+      "content": "Welcome to my dashboard!"
+    },
+    "employees": {
+      "title": "Employees",
+      "content": [
+        {
+          "name": "Arun Mohan",
+          "id": "0010",
+          "email": "Arunmohan@factweavers.com",
+          "joined": "10/05/2014",
+          "role": "project manager",
+          "mobile":"+91 9895896586"
+        },
+        {
+          "name": "Arun Mohan",
+          "id": "0010",
+          "email": "Arunmohan@factweavers.com",
+          "joined": "10/05/2014",
+          "role": "project manager",
+          "mobile":"+91 9895896586"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "Get in touch with me."
+    }
+  }
+  
