@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import mail from "/Users/cyriljoby/ReactHandsOn/src/assets/mail-logo.png"
+import mail from "../assets/mail-logo.png"
 import profile from "../assets/profile-image.png"
 import { logout } from "../redux/actions";
 import { connect } from "react-redux";
