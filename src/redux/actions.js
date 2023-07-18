@@ -28,6 +28,7 @@ export const setupUser = ({email,password, isMember}) => {
         const {id,token} = data
         let user={email,password}
         localStorage.setItem("user",JSON.stringify(user))
+        localStorage.setItem("token",(token))
         let msg = "Regisration Sucessful"
         dispatch({type: 'SETUP_SUCCESS', payload: {msg,user,token} })
       }
@@ -46,6 +47,7 @@ export const setupUser = ({email,password, isMember}) => {
         const {id,token} = data
         let user={email,password,token}
         localStorage.setItem("user",JSON.stringify(user))
+        localStorage.setItem("token",(token))
         let msg = "Login Sucessful"
         dispatch({type: 'SETUP_SUCCESS', payload: {msg,user,token} })
       }
@@ -69,14 +71,32 @@ export const logout = ()=>{
   }
 }
 
-export const fetchEmployees=()=>{
-  
-  return async (dispatch)=>{
-    console.log('hi')
-    const {data}  = await axios.get('https://reqres.in/api/users')
-    let employees = (data.data)
-    console.log(employees)
-    dispatch({type:'FETCH_EMPLOYEES',payload:{employees}})
+export const fetchEmployees = () => {
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // If token is not found, handle the error or redirect to login
+        console.log('hi')
+        dispatch({ type: 'TOKEN_ERROR' });
+        return;
+      }
 
-  }
-}
+      // Set the Authorization header with the token
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.get('https://reqres.in/api/users', config);
+      const employees = response.data.data;
+      console.log(employees)
+
+      dispatch({ type: 'FETCH_EMPLOYEES_SUCCESS', payload: { employees } });
+    } catch (error) {
+      // Handle the error if the API request fails
+      dispatch({ type: 'FETCH_EMPLOYEES_ERROR', payload: { error } });
+    }
+  };
+};

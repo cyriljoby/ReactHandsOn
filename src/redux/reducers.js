@@ -57,7 +57,7 @@ const initialState = {
           user: null,
           token: null,
         };
-      case 'FETCH_EMPLOYEES':
+      case 'FETCH_EMPLOYEES_SUCCESS':
         return{
           ...state,
           employees:action.payload.employees

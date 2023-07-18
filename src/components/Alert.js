@@ -1,10 +1,16 @@
-import { useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux';
+import Wrapper from '../assets/Wrappers/Alert';
 const Alert = () => {
-    const alertText = useSelector((state) => state.alertText);
-    const alertType = useSelector((state) => state.alertType);
-    console.log(alertText,alertType)
-    return <div className="alert">{alertText}</div>
-}
+  const alertText = useSelector((state) => state.alertText);
+  const alertType = useSelector((state) => state.alertType);
+  
+  return (
+    <Wrapper>
+    <div className={`alert ${alertType}`}>
+      {alertText}
+    </div>
+    </Wrapper>
+  );
+};
 
-export default Alert
+export default Alert;

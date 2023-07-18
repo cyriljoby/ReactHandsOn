@@ -42,7 +42,7 @@ const RegistrationForm = ({ setupUser }) => {
   useEffect(() => {
     if (token) {
       setTimeout(() => {
-        navigate('/')
+        navigate('/employees')
       }, 3000)
     }
   }, [token, navigate])

@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import mail from "/Users/cyriljoby/ReactHandsOn/src/assets/mail-logo.png"
-import profile from "/Users/cyriljoby/ReactHandsOn/src/assets/profile-image.png"
+import profile from "../assets/profile-image.png"
 import { logout } from "../redux/actions";
 import { connect } from "react-redux";
 
 const Header = ({ logout }) => {
     const remove = () => {
-        console.log('hi');
         logout();
     };
 
@@ -20,7 +19,7 @@ const Header = ({ logout }) => {
                     <span className="image">
                         <img src={profile} alt="imager" />
                     </span>
-                    <Link onClick={remove} to="/">Logout</Link>
+                    <Link onClick={remove} to="/logout">Logout</Link>
                 </a>
             </div>
         </header>
